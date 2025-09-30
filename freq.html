@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<body>
+    <div class="faq-section">
+        <div class="faq-img">
+            <img src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/d271d16a-a77c-47ca-aa23-419bdaa3d45b/WhatsApp+Image+2025-09-29+at+11.07.55+AM.jpeg?content-type=image%2Fjpeg" id="img"> 
+        </div>
+        <div class="faq-items">
+            <div class="text">
+                <h1>Preguntas frecuentes</h1>
+            </div>
+            <div class="items">
+                <div class="question">
+                 <span>¿Financian la construcción de las obras?</span> 
+                <span class="icon">+</span>
+                </div>
+                <div class="answer">
+                <span>Sí, ofrecemos financiación propia y, para proyectos de casas modulares, también podés acceder a opciones a través del Banco Hipotecario.</span>
+                </div>
+            </div>
+            <div class="items">
+                 <div class="question">
+                <span>¿Ofrecen proyectos “llave en mano”?</span> 
+                 <span class="icon">+</span>
+                </div>
+                <div class="answer">
+                 <span>Sí, nos ocupamos de todo el proceso: desde el diseño del anteproyecto, hasta la provisión de materiales y la construcción. Además, diseñamos muebles y aberturas a medida para ofrecer una solución integral.</span>
+                </div>
+            </div>
+            <div class="items">
+                <div class="question">
+                <span>¿Qué tipo de asesoramiento brindan antes de comenzar una obra?</span> 
+                 <span class="icon">+</span>
+                </div>
+                <div class="answer">
+                <span>Ofrecemos asesoramiento completo para planificar tu obra, ayudándote a elegir el diseño, los materiales y explicando las ventajas y etapas del sistema steel frame.</span>
+                </div>
+            </div>
+            <div class="items">
+                <div class="question">
+                <span>¿Cómo se realizan los pagos de la obra?</span> 
+                 <span class="icon">+</span>
+                </div>
+                <div class="answer">
+                    <span>Los pagos se hacen por etapas, acompañando el progreso de la obra. Antes de empezar, acordamos juntos un plan claro para que todo sea transparente y previsible.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    .faq-section{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 4vw, 4rem);
+  align-items:start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 40px) clamp(16px, 3vw, 32px);
+}
+    .faq-items{
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.9rem, 1.8vw, 1.5rem);
+    }
+    .faq-img img {
+     width: 100%;
+     height: auto;
+     object-fit: cover;
+     border-radius: 16px;
+     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    .items{
+        display: flex;
+        flex-direction: column;
+        text-wrap: balance;
+        border-bottom: 1px solid #ddd;
+    }
+    .question{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 19px;
+    }
+    .answer{
+        display: none;
+        margin-top: 10px;
+        color: #444;
+        transition: max-height .14s ease;
+        will-change: max-height;
+        font-size: 15px;
+    }
+    .text h1{
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  margin: 0 0 .25em;
+}
+
+    
+</style>
+<script>
+(() => {
+  const items = [...document.querySelectorAll('.faq-items .items')];
+
+  items.forEach((item) => {
+    const q = item.querySelector('.question');
+    const a = item.querySelector('.answer');
+    const icon = item.querySelector('.icon');
+
+    // A11y
+    q.setAttribute('role', 'button');
+    q.setAttribute('tabindex', '0');
+    q.setAttribute('aria-expanded', 'false');
+    a.setAttribute('role', 'region');
+    a.setAttribute('aria-hidden', 'true');
+
+    // Estado inicial: todo cerrado
+    item.classList.remove('open');
+    a.style.display = 'none';
+    a.style.maxHeight = '0px';
+    a.style.overflow = 'hidden';
+    if (icon) icon.textContent = '+';
+
+    const closeItem = (it) => {
+      const qq = it.querySelector('.question');
+      const aa = it.querySelector('.answer');
+      const ic = it.querySelector('.icon');
+      it.classList.remove('open');
+      aa.style.maxHeight = '0px';
+      qq.setAttribute('aria-expanded', 'false');
+      aa.setAttribute('aria-hidden', 'true');
+      if (ic) ic.textContent = '+';
+      aa.addEventListener('transitionend', function onEnd(e){
+        if (e.propertyName === 'max-height' && !it.classList.contains('open')) {
+          aa.style.display = 'none';
+          aa.removeEventListener('transitionend', onEnd);
+        }
+      });
+    };
+
+    const openItem = (it) => {
+      const aa = it.querySelector('.answer');
+      const ic = it.querySelector('.icon');
+      // cerrar otros (una abierta a la vez)
+      items.forEach((other) => { if (other !== it) closeItem(other); });
+      it.classList.add('open');
+      aa.style.display = 'block';
+      requestAnimationFrame(() => { aa.style.maxHeight = aa.scrollHeight + 'px'; });
+      q.setAttribute('aria-expanded', 'true');
+      a.setAttribute('aria-hidden', 'false');
+      if (ic) ic.textContent = '–';
+    };
+
+    const toggle = () => (item.classList.contains('open') ? closeItem(item) : openItem(item));
+    q.addEventListener('click', toggle);
+    q.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.code === 'Space' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+
+  // 🔒 Nada de restores: siempre todos cerrados al cargar.
+})();
+</script>

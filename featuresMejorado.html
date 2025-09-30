@@ -1,0 +1,163 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+<section class="features" id="features">
+  <div class="features__head">
+    <h2>¿Por qué elegirnos?</h2>
+    <p>
+      Nos eligen porque combinamos innovación, calidad y un trato humano, poniendo el mismo compromiso en cada proyecto, grande o pequeño. Queremos que disfrutes del proceso tanto como del resultado final.
+    </p>
+  </div>
+
+  <div class="features__grid">
+    <article class="feature">
+      <span class="material-symbols-outlined feature__icon" aria-hidden="true">brick</span>
+      <h3 class="feature__title">Personalización</h3>
+      <p class="feature__text">
+        Proyectos totalmente personalizables, desde cero o ampliando lo que ya tenés, con materiales de primera y opciones flexibles.
+      </p>
+    </article>
+
+    <article class="feature">
+      <span class="material-symbols-outlined feature__icon" aria-hidden="true">currency_exchange</span>
+      <h3 class="feature__title">Accesibilidad</h3>
+      <p class="feature__text">
+        Precios competitivos con la mejor relación costo–beneficio, sin resignar calidad.
+      </p>
+    </article>
+
+    <article class="feature">
+      <span class="material-symbols-outlined feature__icon" aria-hidden="true">account_balance</span>
+      <h3 class="feature__title">Financiación</h3>
+      <p class="feature__text">
+        En casas modulares, ofrecemos planes de financiamiento a través del Banco Hipotecario.
+      </p>
+    </article>
+
+    <article class="feature">
+      <span class="material-symbols-outlined feature__icon" aria-hidden="true">construction</span>
+      <h3 class="feature__title">Innovación</h3>
+      <p class="feature__text">
+        Sistema constructivo propio para mayor eficiencia, calidad y versatilidad en cada proyecto.
+      </p>
+    </article>
+  </div>
+</section>
+
+<style>
+  :root{
+    --bg: #000000;
+    --fg: #ffffff;
+    --text: #111;
+    --maxw: 1100px;
+    --radius: 18px;
+    --pad: clamp(14px, 2.5vw, 28px);
+  }
+
+  /* Reset suave */
+  * { box-sizing: border-box; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  .features{
+    margin-inline: auto;
+    padding: clamp(24px, 4vw, 56px) var(--pad);
+    max-width: var(--maxw);
+    display: grid;
+    gap: clamp(18px, 3vw, 28px);
+  }
+
+  .features__head{
+    text-align: center;
+    color: var(--text);
+  }
+
+  .features__head h2{
+    margin: 0 0 .4rem 0;
+    font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+    line-height: 1.15;
+    letter-spacing: .2px;
+  }
+
+  .features__head p{
+    margin: 0 auto;
+    max-width: 70ch;
+    font-size: clamp(.95rem, 2.2vw, 1.05rem);
+    line-height: 1.5;
+    text-wrap: balance;
+    color: #222;
+  }
+
+  .features__grid{
+    background: var(--bg);
+    color: var(--fg);
+    width: 100vw;         
+    margin-left: calc(-50vw + 50%); 
+    border-radius: 0; 
+    padding: clamp(16px, 3vw, 40px);
+    
+    display: grid;
+    grid-template-columns: 1fr; /* mobile */
+    gap: clamp(16px, 2.5vw, 28px);
+    align-items: stretch;
+}
+
+
+  .feature{
+    background: color-mix(in srgb, #ffffff 6%, transparent);
+    border: 1px solid color-mix(in srgb, #ffffff 16%, transparent);
+    border-radius: calc(var(--radius) - 6px);
+    padding: clamp(14px, 2.2vw, 20px);
+    display: grid;
+    gap: 8px;
+    justify-content: flex-start;
+    text-align: center;
+    transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  }
+
+  .feature:hover{
+    transform: translateY(-2px);
+    background: color-mix(in srgb, #ffffff 10%, transparent);
+    border-color: color-mix(in srgb, #ffffff 26%, transparent);
+  }
+
+  .feature__icon{
+    font-size: clamp(42px, 6vw, 60px);
+    line-height: 1;
+    margin-inline: auto;
+  }
+
+  .feature__title{
+    margin: 4px 0 0 0;
+    font-size: clamp(1.05rem, 2.4vw, 1.2rem);
+    line-height: 1.2;
+    min-height: 1.3em;
+    color: var(--fg);
+  }
+
+  .feature__text{
+    margin: 0;
+    font-size: clamp(.92rem, 2.2vw, 1rem);
+    line-height: 1.45;
+    color: color-mix(in srgb, var(--fg) 88%, black 12%);
+  }
+
+  /* Tablet */
+  @media (min-width: 600px){
+    .features__grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 992px){
+    .features__grid{
+      grid-template-columns: repeat(4, 1fr);
+      padding: clamp(16px, 2.2vw, 28px);
+    }
+  }
+
+  /* Respeta usuarios con reducción de movimiento */
+  @media (prefers-reduced-motion: reduce){
+    .feature{ transition: none; }
+    .feature:hover{ transform: none; }
+  }
+</style>
