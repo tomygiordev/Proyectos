@@ -53,7 +53,7 @@
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(1.25rem, 4vw, 4rem);
-  align-items:start;
+  align-items: stretch;
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(16px, 3vw, 40px) clamp(16px, 3vw, 32px);
@@ -63,40 +63,87 @@
         flex-direction: column;
         gap: clamp(0.9rem, 1.8vw, 1.5rem);
     }
+    .faq-img{height: 100%; }
     .faq-img img {
      width: 100%;
-     height: auto;
+     height: 100%;
      object-fit: cover;
+     min-height: clamp(260px, 35vw, 420px);
      border-radius: 16px;
      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     }
     .items{
-        display: flex;
-        flex-direction: column;
-        text-wrap: balance;
-        border-bottom: 1px solid #ddd;
-    }
+  display:flex; flex-direction:column;
+  text-wrap:balance;
+  font-size: clamp(16px, 1.6vw, 19px);
+  border-bottom:1px solid #e6e6e6;
+}
     .question{
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        font-size: 19px;
-    }
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 12px;
+  cursor:pointer;
+  padding: clamp(10px, 1.4vw, 14px) 0;
+}
+.question .icon{
+  font-weight:700;
+  line-height:1;
+  min-width: 20px;          /* no “salta” el layout */
+  text-align:right;
+  transform: translateY(-1px);
+}
     .answer{
-        display: none;
-        margin-top: 10px;
-        color: #444;
-        transition: max-height .14s ease;
-        will-change: max-height;
-        font-size: 15px;
-    }
+      font-size: 16px;
+  display:none;
+  margin-top:8px;
+  color:#444;
+  transition:max-height .24s ease;
+  will-change:max-height;
+}
     .text h1{
   font-size: clamp(28px, 4vw, 52px);
   line-height: 1.05;
   margin: 0 0 .25em;
 }
+@media (max-width: 1100px){
+  .faq-section{
+    gap: clamp(1rem, 3vw, 2.5rem);
+  }
+  .faq-img img{
+    /* panorama suave para que no quede “cuadrada” */
+    aspect-ratio: 16 / 10;
+    height: auto;
+  }
+}
 
+/* Tablet */
+@media (max-width: 768px){
+  .faq-section{
+    grid-template-columns: 1fr;         /* stack */
+  }
+  .faq-img{ order: -1; }                /* imagen arriba */
+  .faq-img img{
+    aspect-ratio: 16 / 9;               /* banner */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .faq-section{ padding-inline: 16px; }
+  .text h1{ font-size: clamp(26px, 7vw, 34px); }
+  .items{ font-size: clamp(15px, 4.2vw, 17px); }
+  .question{ padding: 12px 0; }
+  .faq-img img{ border-radius: 12px; }
+}
+
+/* Mobile chico */
+@media (max-width: 380px){
+  .question .icon{ min-width:18px; }
+}
+
+
+@media (prefers-reduced-motion: reduce){
+  .answer{ transition:none; }
+}
     
 </style>
 <script>
