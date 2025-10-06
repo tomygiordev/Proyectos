@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <body>
-<div class="container">
-  <div class="modelo"></div>
-  <div class="WMU"></div>
-  <div class="WMU PLUS"></div>
-  <div class="Casa aldea"></div>
-  <div class="Casa campo"></div>
-</div>
-
+  <section class="main-section">
+    <h1>Modelos</h1>
+    <div class="galeria">
+      <div class="items">
+        <div class="item">
+          <img src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/df7f884b-6c2a-46c5-807a-5f997f968215/WMU+10.jpg?content-type=image%2Fjpeg">
+            <div class="card-item">
+              <h3>WMU Cero</h3>
+              <p>Diseño contemporáneo con cocina-comedor integrada, dormitorio para dos, baño completo y estar confortable</p>
+            </div>
+        </div>
+        <div class="item">
+          <img src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/df7f884b-6c2a-46c5-807a-5f997f968215/WMU+10.jpg?content-type=image%2Fjpeg">
+            <div class="card-item">
+              <h3>WMU Cero + Extensión</h3>
+              <p>Mantiene las características del modelo CERO, con opción de extensión.</p>
+            </div>
+        </div>
+        <div class="item">
+          <img src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/df7f884b-6c2a-46c5-807a-5f997f968215/WMU+10.jpg?content-type=image%2Fjpeg">
+            <div class="card-item">
+              <h3>WMU Campo</h3>
+              <p>Diseño que integra naturaleza y confort, con ambientes amplios, cálidos y conectados al entorno exterior.</p>
+            </div>
+        </div>
+        <div class="item">
+          <img src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/df7f884b-6c2a-46c5-807a-5f997f968215/WMU+10.jpg?content-type=image%2Fjpeg">
+            <div class="card-item">
+              <h3>WMU Aldea</h3>
+              <p>“Concepto modular que combina privacidad y encuentro, con tres módulos conectados y espacios pensados para la vida en comunidad.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 <style>
-.container {  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "modelo modelo"
-    "WMU WMU PLUS"
-    "Casa aldea Casa campo";
+body{
+  margin:0;
+  padding:0;
 }
+.main-section{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  max-width: 1120px;
+  margin: 0 auto;
 
-.modelo { grid-area: modelo; }
-
-.WMU { grid-area: WMU; }
-
-.WMU PLUS { grid-area: WMU PLUS; }
-
-.Casa aldea { grid-area: Casa aldea; }
-
-.Casa campo { grid-area: Casa campo; }
-
+.items{
+  display:grid;
+  grid-template-columns: repeat(2 1fr);
+}
+}
 </style>
