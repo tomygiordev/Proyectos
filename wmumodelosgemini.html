@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Módulo WMU Cero</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        /* --- Estilos Básicos de la Página --- */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        /* --- Contenedor Principal con Grid --- */
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: auto;
+            gap: 25px 30px; /* Aumentamos el espacio entre filas */
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start; 
+        }
+
+        /* --- Contenido del Lado Izquierdo --- */
+
+        /* Título (Fila 1) */
+        .div10 {
+            /* El texto ahora ocupa 7 columnas, dejando 5 para la imagen */
+            grid-column: 1 / 8;
+            grid-row: 1;
+        }
+
+        .div10 h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* --- NUEVO CONTENEDOR PARA LOS ÍCONOS (Fila 2) --- */
+        .features-container {
+            grid-column: 1 / 8; /* Ocupa el mismo ancho que el título y el texto */
+            grid-row: 2;
+            display: flex;
+            justify-content: space-between; /* Distribuye los íconos equitativamente */
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee; /* Línea divisoria sutil */
+        }
+
+        /* Estilos para cada ícono individual dentro del contenedor */
+        .feature-item {
+            display: flex;
+            flex-direction: column; /* Ícono arriba, texto abajo */
+            align-items: center;   /* Centrado horizontal */
+            gap: 6px;              /* Espacio entre ícono y texto */
+            text-align: center;
+        }
+
+        .feature-item h4 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .feature-item .material-symbols-outlined {
+            font-size: 2.2rem;
+            color: #026842;
+        }
+
+        /* Párrafo de Descripción (Fila 3) */
+        .div13 {
+            grid-column: 1 / 8;
+            grid-row: 3;
+            line-height: 1.7;
+        }
+
+        /* --- Imagen del Lado Derecho --- */
+        .div6 {
+            /* La imagen ahora ocupa 5 columnas (más espacio) */
+            grid-column: 8 / 13;
+            /* Se expande para cubrir las 3 filas del contenido de la izquierda */
+            grid-row: 1 / 4;
+            align-self: stretch; /* Se estira para ocupar toda la altura */
+        }
+
+        .div6 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* La imagen cubre el espacio sin deformarse */
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .div12 { display: none; }
+
+    </style>
+</head>
+<body>
+
+<div class="parent">
+    <div class="div10">
+        <h1>MÓDULO WMU CERO</h1>
+    </div>
+
+    <div class="features-container">
+        <div class="feature-item">
+            <span class="material-symbols-outlined">bed</span>
+            <h4>1 habitación</h4>
+        </div>
+        <div class="feature-item">
+            <span class="material-symbols-outlined">shower</span>
+            <h4>1 baño</h4>
+        </div>
+        <div class="feature-item">
+            <span class="material-symbols-outlined">square_foot</span>
+            <h4>36 m² cubiertos</h4>
+        </div>
+        <div class="feature-item">
+            <span class="material-symbols-outlined">dining</span>
+            <h4>Estar-Cocina</h4>
+        </div>
+    </div>
+
+    <div class="div13">
+        <p>El WMU CERO le ofrece el espacio que necesita, diseñado de forma inteligente. En sus 36m² de alto rendimiento, hemos creado un hogar práctico y luminoso con una habitación, baño completo y un ambiente principal integrado que facilita su día a día. Este módulo es la respuesta simple a su proyecto. Ya sea que esté soñando con su primera casa propia o necesite añadir un espacio extra a su terreno o vivienda actual, el WMU CERO se adapta con total flexibilidad. Es una forma rápida y segura de crecer.Descubra la tranquilidad de un proyecto llave en mano, con la calidad constructiva que merece y un valor claro desde USD 45.000. Comience a disfrutar de un diseño pensado para usted.</p>
+    </div>
+    
+    <div class="div6">
+        <img src="wmu enhaced.png" alt="Render de una casa modular moderna">
+    </div>
+
+    <div class="div12"></div>
+</div>
+
+</body>
+</html>
