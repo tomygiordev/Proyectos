@@ -74,8 +74,8 @@
             grid-column: 1 / 8;
             grid-row: 3;
             line-height: 1.7;
-            max-width: 550px;
-            text-wrap: pretty;
+            max-width: 560px;
+            text-wrap: balance;
         }
 
         /* --- Contenedor de Imágenes del Lado Derecho (MODIFICADO) --- */
@@ -107,7 +107,9 @@
             object-fit: cover; /* La imagen cubre el espacio sin deformarse */
             display: block;
         }
-        
+        .image-container #plano{
+            transform: scale(1.5);
+        }
         /* --- NUEVO: Estilo para el marcador de posición del plano --- */
         .plan-placeholder {
             width: 100%;
@@ -160,8 +162,8 @@
             <img src="wmu enhaced.png" alt="Render de una casa modular moderna">
         </div>
         
-        <div class="plan-placeholder">
-           <span>Aquí va el plano PNG</span>
+        <div class="image-container">
+           <img src="plano cero.jpg" alt="Plano render WMU CERO" id="plano">
         </div>
         </div>
 
