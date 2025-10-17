@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Módulo WMU Cero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" />
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================
+       Paleta clara (estética blanca)
+    ============================ */
+    :root{
+      --brand: #35C36B;         /* WMU green */
+      --brand-dk: #2aa95b;
+      --ink: #0c1210;           /* texto principal */
+      --muted: #6b7280;         /* texto secundario */
+      --bg: #ffffff;            /* fondo blanco */
+      --hairline: #e9edf0;      /* líneas suaves */
+      --card: #ffffff;
+      --shadow: 0 10px 28px rgba(18, 28, 23, .08);
+      --radius: 16px;
+      --radius-sm: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      margin: 0;
+      padding: clamp(18px, 3vw, 40px);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Patrón rombos muy sutil (como la referencia, pero claro) */
+    body::before{
+      content:"";
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: -1;
+      --g: #0f1a14; /* base para el patrón */
+      background:
+        linear-gradient(135deg, rgba(15,26,20,.035) 1px, transparent 1px) 0 0/26px 26px,
+        linear-gradient(225deg, rgba(15,26,20,.035) 1px, transparent 1px) 0 0/26px 26px,
+        radial-gradient(1200px 420px at 12% -12%, rgba(53,195,107,.08), transparent 55%),
+        radial-gradient(1000px 360px at 88% 110%, rgba(53,195,107,.06), transparent 55%);
+    }
+
+    /* Contenedor máximo sin “caja” opaca (look aireado) */
+    .parent{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: auto;
+      gap: 26px 32px;
+      align-items: start;
+      max-width: 1180px;
+      margin-inline: auto;
+    }
+
+    /* ============================
+       Título (misma posición)
+    ============================ */
+    .div10{ grid-column: 1 / 8; grid-row: 1; }
+    .div10 h1{
+      font-family: Poppins, Inter, sans-serif;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: .2px;
+      font-size: clamp(32px, 4.6vw, 56px);
+      color: var(--ink);
+    }
+    .subtitle{
+      margin-top: 14px;
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.2vw, 1.08rem);
+      line-height: 1.7;
+    }
+
+    /* ============================
+       Features (misma posición)
+    ============================ */
+    .features-container{
+      grid-column: 1 / 8; grid-row: 2;
+      display: flex; flex-wrap: wrap;
+      gap: clamp(14px, 2.4vw, 28px);
+      padding: 6px 0 18px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .feature-item{
+      display:flex; flex-direction:column; align-items:center; gap:8px;
+      min-width: 110px;
+      user-select:none;
+      transition: transform .25s ease;
+    }
+    .feature-item:hover{ transform: translateY(-2px); }
+
+    .feature-item .material-symbols-outlined{
+      font-size: 28px; line-height: 1;
+      color: var(--brand-dk);
+      width: 52px; height: 52px; display:grid; place-items:center;
+      border-radius: var(--radius-sm);
+      background: #f3faf6;
+      border: 1px solid #e3f3ea;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+    }
+    .feature-item h4{
+      margin:0; text-align:center; white-space:nowrap;
+      font-weight: 600; font-size: .95rem;
+    }
+
+    /* ============================
+       Párrafo (misma posición)
+    ============================ */
+    .div13{ grid-column: 1 / 8; grid-row: 3; }
+    .div13 p{
+      margin: 0; max-width: 60ch;
+      color: var(--muted);
+      line-height: 1.8; text-wrap: pretty;
+      font-size: clamp(1rem, 1.15vw, 1.08rem);
+    }
+    .price-pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 12px; margin-top: 10px;
+      border-radius: 999px; font-weight: 600;
+      color: var(--brand-dk); background: #ecf9f1;
+      border: 1px solid #d7f0e1;
+    }
+
+    /* ============================
+       Columna de imágenes (misma posición)
+    ============================ */
+    .div6{
+      grid-column: 8 / 13; grid-row: 1 / 4;
+      display:flex; flex-direction:column; gap: 12px;
+      position: relative;
+    }
+
+    .image-container{
+      position: relative;
+      width: 100%; height: 50%;
+      overflow: visible; /* dejamos ver la figura recortada */
+      display: grid; place-items: center;
+      isolation: isolate;
+    }
+
+    /* Figura geométrica tipo “corte” (diamante/hex) */
+    .cut{
+      position: relative; width: 100%; height: 100%;
+      border-radius: 0; /* la figura la da el clip-path */
+      box-shadow: var(--shadow);
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      overflow: hidden;
+      /* rombo suavizado */
+      -webkit-clip-path: polygon(12% 0%, 88% 0%, 100% 18%, 100% 82%, 88% 100%, 12% 100%, 0% 82%, 0% 18%);
+              clip-path: polygon(12% 0%, 88% 0%, 100% 18%, 100% 82%, 88% 100%, 12% 100%, 0% 82%, 0% 18%);
+    }
+    .cut::after{
+      /* leve borde interior para “premium” */
+      content:""; position:absolute; inset: 0;
+      border: 1px solid rgba(12,18,16,.06);
+      pointer-events:none;
+      -webkit-clip-path: inherit; clip-path: inherit;
+    }
+    .image-container img{
+      width: 100%; height: 100%;
+      object-fit: cover; display:block;
+      transform: scale(1.02);
+      transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .4s ease;
+    }
+    .image-container:hover img{ transform: scale(1.06); }
+    /* Plano con zoom moderado (como pediste) */
+    #plano{ transform: scale(1.28); transform-origin: center; }
+
+    /* Etiquetas sutiles */
+    .tag{
+      position:absolute; top:14px; left:14px;
+      padding: 6px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      border: 1px solid var(--hairline);
+      font-size: .8rem; font-weight: 600; color: var(--ink);
+      backdrop-filter: blur(2px);
+    }
+
+    /* ============================
+       Responsive (sin tocar desktop)
+    ============================ */
+    @media (max-width: 980px){
+      .parent{ gap: 22px; }
+    }
+    @media (max-width: 820px){
+      .parent{ grid-template-columns: 1fr; }
+      .div10, .features-container, .div13{ grid-column: 1 / -1; }
+      .div6{ grid-column: 1 / -1; grid-row: auto; order: -1; }
+      .image-container{ height: min(48vh, 360px); }
+      #plano{ transform: scale(1.12); }
+    }
+
+    .div12{ display:none; }
+  </style>
+</head>
+<body>
+
+  <div class="parent">
+    <!-- Título (misma posición) -->
+    <div class="div10">
+      <h1>MÓDULO WMU CERO</h1>
+      <p class="subtitle">
+        Arquitectura modular en steel frame: precisión industrial, obra limpia y montaje rápido.
+        Elegí el modelo, ajustá el plan, lo instalamos.
+      </p>
+    </div>
+
+    <!-- Features (misma posición) -->
+    <div class="features-container" role="list">
+      <div class="feature-item" role="listitem" aria-label="Una habitación">
+        <span class="material-symbols-outlined" aria-hidden="true">bed</span>
+        <h4>1 habitación</h4>
+      </div>
+      <div class="feature-item" role="listitem" aria-label="Un baño">
+        <span class="material-symbols-outlined" aria-hidden="true">shower</span>
+        <h4>1 baño</h4>
+      </div>
+      <div class="feature-item" role="listitem" aria-label="Treinta y seis metros cuadrados cubiertos">
+        <span class="material-symbols-outlined" aria-hidden="true">square_foot</span>
+        <h4>36 m² cubiertos</h4>
+      </div>
+      <div class="feature-item" role="listitem" aria-label="Estar y cocina integrados">
+        <span class="material-symbols-outlined" aria-hidden="true">dining</span>
+        <h4>Estar-Cocina</h4>
+      </div>
+    </div>
+
+    <!-- Texto (misma posición) -->
+    <div class="div13">
+      <p>
+        El WMU CERO le ofrece el espacio que necesita, diseñado de forma inteligente. En sus 36&nbsp;m² de alto rendimiento, hemos creado un hogar práctico y luminoso con una habitación, baño completo y un ambiente principal integrado que facilita su día a día. Este módulo es la respuesta simple a su proyecto. Ya sea que esté soñando con su primera casa propia o necesite añadir un espacio extra a su terreno o vivienda actual, el WMU CERO se adapta con total flexibilidad. Es una forma rápida y segura de crecer. Proyecto llave en mano desde
+        <span class="price-pill"><span class="material-symbols-outlined" aria-hidden="true">paid</span> USD 45.000</span>.
+      </p>
+    </div>
+
+    <!-- Imágenes (misma posición, 50/50) -->
+    <div class="div6" aria-label="Galería del módulo WMU CERO">
+      <div class="image-container">
+        <div class="cut">
+          <span class="tag">Render exterior</span>
+          <img src="wmu enhaced.png" alt="Render del módulo WMU CERO con fachada moderna" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <div class="image-container">
+        <div class="cut">
+          <span class="tag">Plano 36 m²</span>
+          <img src="plano cero.jpg" id="plano" alt="Plano del módulo WMU CERO de 36 m², 1 dormitorio, 1 baño y estar-cocina" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+
+    <div class="div12" aria-hidden="true"></div>
+  </div>
+
+</body>
+</html>
