@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Módulo WMU Cero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+
+    .wrap{ padding: clamp(20px, 4vw, 40px); }
+
+    .parent{
+      display:grid;
+      grid-template-columns: 1fr 1fr; 
+      gap: 36px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items:start;
+    }
+
+  
+    .contenido-izquierdo{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .div10 h1{
+      font-size: clamp(28px, 5vw, 44px);
+      line-height:1.15;
+      margin:0;
+      letter-spacing:.4px;
+      color:#173b2e;
+      text-wrap:balance;
+      font-weight:600;
+    }
+
+
+    .price-card{
+      display:flex; align-items:center; gap:12px; width:fit-content;
+      background:
+        radial-gradient(120% 120% at 10% 0%, rgba(27,82,60,.85) 0%, transparent 70%),
+        linear-gradient(135deg, #106843, #1f8e57);
+      color:#ecfff5;
+      padding:12px 16px; border-radius:14px;
+      box-shadow: 0 10px 24px rgba(16,104,67,.18), inset 0 0 0 1px rgba(255,255,255,.12);
+    }
+    .btn-ficha{
+      display:flex; width:70%; justify-content: center;
+      background:
+        radial-gradient(120% 120% at 10% 0%, rgba(27,82,60,.85) 0%, transparent 70%),
+        linear-gradient(135deg, #106843, #1f8e57);
+      color:#ecfff5;
+      padding:12px 16px;border-radius:14px;
+      border:none;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(16,104,67,.18), inset 0 0 0 1px rgba(255,255,255,.12);
+      font-size:clamp(18px, 3.5vw, 20px);
+    }
+    .price-card .material-symbols-outlined{font-size:22px; opacity:.9}
+    .price-card .label{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; opacity:.9; }
+    .price-card .amount{ font-size: clamp(18px, 3.5vw, 22px); font-weight:800; line-height:1; }
+    .price-card .note{
+      font-size:12px; opacity:.85; border-left:1px solid rgba(255,255,255,.35);
+      padding-left:10px; margin-left:4px; white-space:nowrap;
+    }
+
+    .features-container{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(90px,1fr));
+      padding: 8px 0 16px;
+      border-bottom:1px solid #e6efe9;
+    }
+    .feature-item{
+      display:flex; flex-direction:column; align-items:left; gap:4px;
+      text-align:left;
+    }
+    .feature-item .material-symbols-outlined{font-size:34px; color:#106843}
+    .feature-item h4{margin:0; font-size:13px; font-weight:600; color:#20352c; }
+
+    .div13 p{
+      margin:0; max-width: 58ch; line-height:1.7; color:#273f34; text-wrap:balance;
+    }
+
+
+    .div6{
+      display:flex; flex-direction:column; gap:12px;
+      border-radius:14px; overflow:hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,.09);
+      background:#ffffff;
+      
+    }
+    .image-container{ width:100%; overflow:hidden; }
+
+    .image-container.render{
+      aspect-ratio: 16 / 9;
+      max-height: 62vh; 
+    }
+    .image-container.render img{
+      width:100%; height:100%; object-fit:cover; object-position:center;
+      display:block; transform:translateZ(0);
+    }
+
+    .image-container.plano{
+      background:#ffffff;
+      border-top:1px solid #eef2ef;
+    }
+    .image-container.plano img{
+      width:100%; 
+      height:auto;
+      object-position:center;
+      display:block;
+    }
+
+    .clickable-image { cursor: zoom-in; }
+
+    .render-controls {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 8px;
+      padding: 12px 14px 0;
+      background: #ffffff; 
+      position: relative;
+      z-index: 2;
+    }
+    .control-btn {
+      font-family: inherit; 
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid #d0d8d3;
+      border-radius: 20px; 
+      background-color: #f4f7f5;
+      color: #273f34;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .control-btn:hover { background-color: #e6efe9; border-color: #b0bdbc; }
+    .control-btn.active {
+      background-color: #106843; 
+      color: #ecfff5;
+      border-color: #106843;
+      box-shadow: 0 4px 10px rgba(16,104,67,.2);
+    }
+
+    @media (max-width: 1024px){
+      .parent{ grid-template-columns: 1.3fr 1fr; gap:28px; }
+    }
+    @media (max-width: 780px){
+      .parent{ grid-template-columns: 1fr; gap:22px; }
+      
+      .image-container.render{ aspect-ratio: 16 / 10; }
+      .features-container{
+        grid-template-columns: repeat(2, minmax(120px,1fr));
+        gap:16px 20px; border-bottom:none; padding-top:0;
+      }
+      .price-card{ margin-top:6px; }
+    }
+    @media (max-width: 420px) {
+
+  .parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .contenido-izquierdo {
+    display: contents;
+  }
+
+  .div10 {      
+    grid-row: 1;
+    justify-self: center;
+  }
+  .div10 h1 {
+    text-align: center;
+  }
+
+  .price-card {    
+    grid-row: 2;
+    justify-self: center;
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .price-card .amount {
+    font-size: 18px;
+  }
+  .price-card .note {
+    display: none;
+  }
+
+  .features-container { 
+    grid-row: 3;
+    justify-self: stretch;
+    justify-items: center;
+    text-align: center;
+  }
+  .div6 {         
+    grid-row: 4;
+  }
+  .div13 {     
+    grid-row: 5;
+    text-align: center;
+  }
+  .wrap {
+    padding: 16px;
+  }
+  .render-controls {
+    justify-content: center;
+  }
+}
+    .modal-overlay{
+      --safe-top: 0px;            
+
+      display:none;
+      position:fixed;
+      left:0; right:0; bottom:0;
+      top: var(--safe-top);        
+      z-index: 999999;              
+      background: rgba(0,0,0,.85);
+      align-items:center;          
+      justify-content:center;     
+      padding: 20px;
+      box-sizing: border-box;
+      overscroll-behavior: contain;
+    }
+    .modal-content{
+      display:block;
+      width: min(90vw, 1200px);
+      height: min(85vh, 1200px);
+      object-fit: contain;      
+      object-position: center;
+      user-select: none;
+      -webkit-user-drag: none;
+      border-radius: 8px;
+    }
+    .modal-close{
+      position: fixed;       
+      right: 20px;
+      top: calc(var(--safe-top) + 12px);
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+      transition: color .2s ease, transform .15s ease;
+      z-index: 1000000;             
+    }
+    .modal-close:hover{ color:#bbb; transform: scale(1.05); }
+    .verBoton{
+      display: flex;
+      justify-content: center;
+    } 
+    .div6 > .verBoton{
+      margin-top: -8px;
+    }
+    .div6 > .verBoton:last-child{
+      padding-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="parent">
+      <div class="contenido-izquierdo">
+        <div class="div10"><h1>MÓDULO WMU CERO</h1></div>
+
+        <div class="price-card" aria-label="Precio desde">
+          <span class="material-symbols-outlined" aria-hidden="true">sell</span>
+          <span class="label">Desde</span>
+          <strong class="amount">USD 45.000</strong>
+          <span class="note">Financiación disponible</span>
+        </div>
+
+        <div class="features-container">
+          <div class="feature-item">
+            <span class="material-symbols-outlined">bed</span>
+            <h4>1 habitación</h4>
+          </div>
+          <div class="feature-item">
+            <span class="material-symbols-outlined">shower</span>
+            <h4>1 baño</h4>
+          </div>
+          <div class="feature-item">
+            <span class="material-symbols-outlined">square_foot</span>
+            <h4>36 m² cubiertos</h4>
+          </div>
+          <div class="feature-item">
+            <span class="material-symbols-outlined">dining</span>
+            <h4>Estar-Cocina</h4>
+          </div>
+        </div>
+
+        <div class="div13">
+          <p>
+            El WMU CERO le ofrece el espacio que necesita, diseñado de forma inteligente. En sus 36m² de alto rendimiento, hemos creado un hogar práctico y luminoso con una habitación, baño completo y un ambiente principal integrado que facilita su día a día. Este módulo es la respuesta simple a su proyecto. Ya sea que esté soñando con su primera casa propia o necesite añadir un espacio extra a su terreno o vivienda actual, el WMU CERO se adapta con total flexibilidad. Es una forma rápida y segura de crecer. Descubra la tranquilidad de un proyecto llave en mano, con la calidad constructiva que merece y un valor claro desde USD 45.000. Comience a disfrutar de un diseño pensado para usted.
+          </p>
+        </div>
+      </div>
+
+      <div class="div6">
+        <div class="render-controls">
+          <button type="button" class="control-btn active" data-src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/df7f884b-6c2a-46c5-807a-5f997f968215/WMU+10.jpg?content-type=image%2Fjpeg">
+            Clara
+          </button>
+          <button type="button" class="control-btn" data-src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/466a9ae0-8092-4f3f-9f4d-21d1c461296a/Captura+de+pantalla+2025-06-23+094411.png?content-type=image%2Fpng">
+            Oscura
+          </button>
+          <button type="button" class="control-btn" data-src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/1b32d9c4-40fe-4cb0-9191-a664178c92fb/op_oscura_noGalery.png?content-type=image%2Fpng">
+            Sin Galería
+          </button>
+        </div>
+
+        <div class="image-container render">
+          <img id="main-render-image" 
+               class="clickable-image"
+               src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/df7f884b-6c2a-46c5-807a-5f997f968215/WMU+10.jpg?content-type=image%2Fjpeg" 
+               alt="Render de una casa modular moderna">
+        </div>
+        
+        <div class="verBoton">
+          <button type="button" class="btn-ficha">Ver galería</button>
+        </div>
+        <div class="verBoton">
+          <button type="button" class="btn-ficha">Ver ficha técnica</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="image-modal" class="modal-overlay" aria-modal="true" role="dialog">
+    <span class="modal-close" id="modal-close-btn" aria-label="Cerrar">&times;</span>
+    <img class="modal-content" id="modal-image-content" alt="Imagen expandida">
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const targetImage = document.getElementById('main-render-image');
+    const controlButtons = document.querySelectorAll('.control-btn');
+    controlButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        controlButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        const newImageUrl = this.dataset.src;
+        if (newImageUrl) targetImage.src = newImageUrl;
+      });
+    });
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image-content');
+    const closeModalBtn = document.getElementById('modal-close-btn');
+    const clickableImages = document.querySelectorAll('.clickable-image');
+
+    if (modal && modal.parentNode !== document.body) {
+      document.body.appendChild(modal);
+    }
+
+    const header = document.querySelector(
+      '#header, header[data-test="header"], .Header, .site-header, .sqs-site-header, [data-test="header"]'
+    );
+
+    function updateSafeTop(){
+      const h = header ? header.getBoundingClientRect().height : 0;
+      modal.style.setProperty('--safe-top', h + 'px');
+    }
+
+    function lockScroll(lock){
+      document.documentElement.style.overflow = lock ? 'hidden' : '';
+      document.body.style.overflow = lock ? 'hidden' : '';
+    }
+
+    function openModal(e){
+      modal.style.display = 'flex';          
+      modalImage.src = e.target.src;         
+      updateSafeTop();                       
+      lockScroll(true);                      
+    }
+    function closeModal(){
+      modal.style.display = 'none';
+      modalImage.src = '';
+      lockScroll(false);
+    }
+    clickableImages.forEach(img => img.addEventListener('click', openModal));
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e){
+      if(e.target === modal){ closeModal(); }
+    });
+    document.addEventListener('keydown', (ev)=>{
+      if(ev.key === 'Escape' && modal.style.display === 'flex'){ closeModal(); }
+    });
+    updateSafeTop();
+    window.addEventListener('resize', updateSafeTop, { passive: true });
+    document.addEventListener('scroll', updateSafeTop, true);
+  });
+  </script>
+</body>
+</html>
