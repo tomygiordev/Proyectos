@@ -45,12 +45,12 @@
       box-shadow: 0 10px 24px rgba(16,104,67,.18), inset 0 0 0 1px rgba(255,255,255,.12);
     }
     .btn-ficha{
-      display:flex; width:70%; justify-content: center;
+      display:flex; width:50%;  justify-content: center; align-items: center;
       background:
-        radial-gradient(120% 120% at 10% 0%, rgba(27,82,60,.85) 0%, transparent 70%),
-        linear-gradient(135deg, #106843, #1f8e57);
+        radial-gradient(120% 120% at 10% 0%, rgba(0, 0, 0, 0.85) 0%, transparent 70%),
+        linear-gradient(135deg, #000000, #4e4e4e);
       color:#ecfff5;
-      padding:12px 16px;border-radius:14px;
+      padding:12px 16px;
       border:none;
       cursor: pointer;
       box-shadow: 0 10px 24px rgba(16,104,67,.18), inset 0 0 0 1px rgba(255,255,255,.12);
@@ -257,9 +257,7 @@
     .div6 > .verBoton{
       margin-top: -8px;
     }
-    .div6 > .verBoton:last-child{
-      padding-bottom: 8px;
-    }
+    
   </style>
 </head>
 <body>
@@ -323,8 +321,6 @@
         
         <div class="verBoton">
           <button type="button" class="btn-ficha">Ver galería</button>
-        </div>
-        <div class="verBoton">
           <button type="button" class="btn-ficha">Ver ficha técnica</button>
         </div>
       </div>
@@ -336,64 +332,85 @@
     <img class="modal-content" id="modal-image-content" alt="Imagen expandida">
   </div>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const targetImage = document.getElementById('main-render-image');
-    const controlButtons = document.querySelectorAll('.control-btn');
-    controlButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        controlButtons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-        const newImageUrl = this.dataset.src;
-        if (newImageUrl) targetImage.src = newImageUrl;
-      });
-    });
-    const modal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image-content');
-    const closeModalBtn = document.getElementById('modal-close-btn');
-    const clickableImages = document.querySelectorAll('.clickable-image');
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal       = document.getElementById('image-modal');
+  const modalImg    = document.getElementById('modal-image-content');
+  const closeBtn    = document.getElementById('modal-close-btn');
+  const targetImage = document.getElementById('main-render-image');
+  const controls    = document.querySelector('.render-controls');
 
-    if (modal && modal.parentNode !== document.body) {
-      document.body.appendChild(modal);
-    }
+  const header = document.querySelector(
+    '#header, header[data-test="header"], .Header, .site-header, .sqs-site-header, [data-test="header"]'
+  );
+  const lockScroll = (lock) => {
+    const val = lock ? 'hidden' : '';
+    document.documentElement.style.overflow = val;
+    document.body.style.overflow = val;
+  };
 
-    const header = document.querySelector(
-      '#header, header[data-test="header"], .Header, .site-header, .sqs-site-header, [data-test="header"]'
-    );
+  const setSafeTop = (px) => modal.style.setProperty('--safe-top', px + 'px');
+  if (header && 'ResizeObserver' in window) {
+    const ro = new ResizeObserver(() => setSafeTop(header.getBoundingClientRect().height || 0));
+    ro.observe(header);
+    setSafeTop(header.getBoundingClientRect().height || 0);
+  } else {
+    setSafeTop(header ? header.getBoundingClientRect().height || 0 : 0);
+    window.addEventListener('resize', () => setSafeTop(header ? header.getBoundingClientRect().height || 0 : 0), { passive: true });
+  }
+  if (modal && modal.parentNode !== document.body) {
+    document.body.appendChild(modal);
+  }
 
-    function updateSafeTop(){
-      const h = header ? header.getBoundingClientRect().height : 0;
-      modal.style.setProperty('--safe-top', h + 'px');
-    }
+  const openModal = (src) => {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    lockScroll(true);
+  };
 
-    function lockScroll(lock){
-      document.documentElement.style.overflow = lock ? 'hidden' : '';
-      document.body.style.overflow = lock ? 'hidden' : '';
-    }
+  const closeModal = () => {
+    modal.style.display = 'none';
+    modalImg.removeAttribute('src');
+    lockScroll(false);
+  };
+  if (controls) {
+    controls.addEventListener('click', (e) => {
+      const btn = e.target.closest('.control-btn');
+      if (!btn) return;
 
-    function openModal(e){
-      modal.style.display = 'flex';          
-      modalImage.src = e.target.src;         
-      updateSafeTop();                       
-      lockScroll(true);                      
+      const prev = controls.querySelector('.control-btn.active');
+      if (prev) prev.classList.remove('active');
+      btn.classList.add('active');
+
+      const url = btn.dataset.src;
+      if (!url) return;
+      const img = new Image();
+      img.onload = () => { targetImage.src = url; };
+      img.src = url;
+    }, { passive: true });
+  }
+
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest('.clickable-image');
+    if (img) {
+      openModal(img.currentSrc || img.src);
+      return;
     }
-    function closeModal(){
-      modal.style.display = 'none';
-      modalImage.src = '';
-      lockScroll(false);
+    if (e.target === modal) {
+      closeModal();
     }
-    clickableImages.forEach(img => img.addEventListener('click', openModal));
-    closeModalBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e){
-      if(e.target === modal){ closeModal(); }
-    });
-    document.addEventListener('keydown', (ev)=>{
-      if(ev.key === 'Escape' && modal.style.display === 'flex'){ closeModal(); }
-    });
-    updateSafeTop();
-    window.addEventListener('resize', updateSafeTop, { passive: true });
-    document.addEventListener('scroll', updateSafeTop, true);
   });
-  </script>
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && modal.style.display === 'flex') closeModal();
+  }, { passive: true });
+  modal.addEventListener('transitionend', () => {
+    if (modal.style.display === 'flex') closeBtn.focus({ preventScroll: true });
+  });
+  document.body.addEventListener('mousedown', () => document.body.classList.add('mouse-nav'), { passive: true });
+  document.body.addEventListener('keydown',  () => document.body.classList.remove('mouse-nav'), { passive: true });
+});
+</script>
+
 </body>
 </html>
