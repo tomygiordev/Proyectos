@@ -1,0 +1,122 @@
+<body>
+  <section class="grigrid-wrap">
+    <div class="grigrid">
+      <a class="card wpgrid" href="https://www.wpconstrucciones.com/services">
+        <span class="badge">WP</span>
+        <div class="card-copy">
+          <h2>Construcciones Especiales</h2>
+          <p>
+            Estructuras de acero a medida para múltiples necesidades.
+            Gestión integral: diseño, fabricación y montaje.
+          </p>
+          <span class="cta">Qué hacemos</span>
+        </div>
+      </a>
+
+      <a class="card wmugrid" href="https://www.wpconstrucciones.com/wmu">
+        <span class="badge">WMU</span>
+        <div class="card-copy">
+          <h2>Arquitectura Modular</h2>
+          <p>
+            Módulos habitacionales eficientes y rápidos de montar.
+            Enfocado exclusivamente en viviendas modulares.
+          </p>
+          <span class="cta">Conocer WMU</span>
+        </div>
+      </a>
+    </div>
+  </section>
+</body>
+
+<style>
+.grigrid-wrap{padding:clamp(12px,3vw,28px)}
+.grigrid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:clamp(12px,2vw,20px);
+  max-width:1200px;
+  margin:0 auto;
+}
+@media (min-width:900px){
+  .grigrid{grid-template-columns:1fr 1fr}
+}
+.card{
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  min-height:clamp(220px,40vw,420px);
+  border-radius:18px;
+  overflow:hidden;
+  text-decoration:none;
+  box-shadow:0 10px 28px rgba(0,0,0,.18);
+  color:#fff;
+  isolation:isolate;
+}
+.card::before{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.78) 100%);
+  z-index:0;
+}
+.card:hover{transform:translateY(-2px)}
+.card{transition:transform .25s ease, box-shadow .25s ease}
+.card:hover{box-shadow:0 16px 36px rgba(0,0,0,.22)}
+
+.card .badge{
+  position:absolute; top:14px; left:14px;
+  z-index:2;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px; letter-spacing:.6px;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+  border:1px solid rgba(255,255,255,.18);
+}
+
+.card .card-copy{
+  position:relative; z-index:1;
+  padding:clamp(16px,3.5vw,28px);
+  max-width:68ch;
+}
+
+.card h2{
+  
+  line-height:1.05;
+  font-size:clamp(24px,4.5vw,40px);
+  margin:0 0 8px 0;
+  text-shadow:0 2px 16px rgba(0,0,0,.35);
+  color:#fff;
+}
+
+.card p{
+  font-size:clamp(14px,2.2vw,17px);
+  line-height:1.45;
+  opacity:.95;
+  margin:0 0 14px 0;
+}
+
+.card .cta{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#103823,#1e4e37);
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 6px 16px rgba(0,0,0,.25) inset, 0 6px 16px rgba(0,0,0,.15);
+  font-size:14px;
+}
+
+.wpgrid{
+  background-image:url('https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/f45f4ad2-5c61-4536-8c07-f04da0b0be62/1000231816.JPG?content-type=image%2Fjpeg');
+  background-size:cover; background-position:center;
+}
+.wmugrid{
+  background-image:url('https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/7031f733-eba6-4bc9-9ca1-4dfaaaccac12/Sauce+Montrul+op203+-+1+kREA.png?content-type=image%2Fpng');
+  background-size:cover; background-position:center;
+}
+.wpgrid::before{
+  background:linear-gradient(180deg, rgba(7,25,17,.10) 0%, rgba(7,25,17,.62) 58%, rgba(7,25,17,.85) 100%);
+}
+.wmugrid::before{
+  background:linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(7,25,17,.58) 55%, rgba(7,25,17,.82) 100%);
+}
+</style>

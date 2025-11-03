@@ -1,0 +1,99 @@
+<section class="cta-block" aria-labelledby="cta-title">
+  <div class="diamond" aria-hidden="true"></div>
+  <div class="cta-text" id="listo">
+    <h2 id="cta-title">¿Listo para construir tu proyecto?</h2>
+    <p>
+      Combinamos diseño y precisión en cada proyecto. Nuestro profundo conocimiento
+      en arquitectura y la eficiencia del sistema Steel Frame nos permiten crear
+      espacios únicos, funcionales y duraderos.
+    </p>
+  </div>
+
+  <a class="botonCont" href="https://api.whatsapp.com/send/?phone=5493434056918&text&type=phone_number&app_absent=0">
+    Contáctanos
+  </a>
+</section>
+
+<style>
+  .cta-block{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:26px;
+    padding:0;
+    margin:0;
+  }
+
+  .cta-block .diamond {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 12px solid #214530;
+    margin-bottom: 8px;
+  }
+
+  .cta-block .diamond::after {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 12px solid #214530;
+  }
+
+  .cta-block .cta-text{
+    text-align:center;
+    color:#000;
+    max-width:700px;     
+    margin:0 auto;
+    text-wrap:balance;
+  }
+
+  .cta-block .cta-text p{
+    line-height:1.6;
+    margin-bottom:0;
+    color:#444;
+  }
+
+  .cta-block h2{
+    margin-top:0 !important; 
+  }
+
+  .botonCont {
+    display:inline-block;
+    padding:12px 30px;
+    background:#000;
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:1px;
+    border:none;
+    cursor:pointer;
+    transition:background-color .3s ease;
+  }
+
+  .botonCont:hover{ background:#333; }
+
+  .cta-block #listo{ display:block; }
+
+  .cta-block .cta-text h2 {
+    margin-bottom:26px;
+  }
+
+  .cta-block .cta-text p {
+    margin-top:0;
+  }
+
+  @media (max-width:768px){
+    .cta-block{ gap:14px; }
+    .cta-block .cta-text{ max-width:520px; }
+    .cta-block .cta-text p{ padding:0 6%; }
+  }
+</style>
