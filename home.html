@@ -1,0 +1,179 @@
+
+<style>
+  :root{
+    --wmu-green:#35C36B;
+    --wmu-bg:#0C1210;
+    --wmu-text:#F3F5F4;
+    --wmu-soft:#B7C0BB;
+    --glass:rgba(0,0,0,.45);
+    --border:rgba(255,255,255,.14);
+
+    
+    --hero-fade-color:#000;  
+    --hero-fade-top-h:90px;  
+    --hero-fade-bot-h:120px; 
+  }
+
+  .wmu-hero-full{
+    position:relative; isolation:isolate;
+    min-height:100svh;
+    display:grid; place-items:center;
+    overflow:hidden; background:var(--wmu-bg);
+    color:var(--wmu-text);
+  }
+  
+html { 
+  scroll-behavior: smooth;
+}
+#models { 
+  scroll-margin-top: -20px; 
+}
+#financiacion  .wmu-hero-full .bg{ position:absolute; inset:0; z-index:-2; overflow:hidden; }
+#financiacion  .wmu-hero-full .bg video,
+#financiacion  .wmu-hero-full .bg img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; filter:brightness(.55) contrast(1.05) saturate(1.05);
+  }
+ #financiacion .wmu-hero-full .fade{ position:absolute; left:0; right:0; pointer-events:none; z-index:0; }
+ #financiacion .wmu-hero-full .fade.top{
+    top:0; height:var(--hero-fade-top-h);
+    background:linear-gradient(to top,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.65) 65%,
+      var(--hero-fade-color) 100%);
+  }
+ #financiacion .wmu-hero-full .fade.bottom{
+    bottom:0; height:var(--hero-fade-bot-h);
+    background:linear-gradient(to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.7) 60%,
+      var(--hero-fade-color) 100%);
+  }
+
+ 
+ #financiacion.wmu-hero-full::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:
+      radial-gradient(120% 120% at 70% 20%, rgba(53,195,107,.18), transparent 60%),
+      linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
+  }
+  #financiacion.wmu-hero-full::after{
+    content:""; position:absolute; inset:-40% -10% -10% -40%; z-index:-1; opacity:.15; pointer-events:none;
+    background:
+      repeating-linear-gradient(60deg, rgba(255,255,255,.25) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(-60deg, rgba(255,255,255,.25) 0 1px, transparent 1px 32px);
+    transform:skewY(-6deg);
+  }
+
+  
+  .wmu-hero-inner{
+    width:min(1200px, 92vw);
+    display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px,4vw,48px);
+    align-items:center;
+    z-index:1; /* contenido por encima de los fades */
+  }
+  .wmu-eyebrow{ display:inline-block; margin-bottom:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--wmu-green); font-size:.85rem; }
+  .wmu-title{ margin:0 0 10px; line-height:1.05; font-size:clamp(28px,5vw,56px); font-weight:1000;  color:var(--wmu-green); }
+  .wmu-title .thin{ font-weight:800; opacity:.95; display:block;}
+  .wmu-title .strong{ color:#2f8a5a;font-weight:700 }
+  .wmu-sub{ margin:.6rem 0 1rem; color:var(--wmu-soft); font-size:clamp(16px,1.6vw,20px); }
+
+  .wmu-credit{
+    display:flex;align-items:center; gap:14px; flex-wrap:wrap;
+    background:var(--glass); border:1px solid var(--border);
+    padding:10px 14px; border-radius:12px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    width:max-content; max-width:100%;
+  }
+  
+  .wmu-credit img{ height:22px; width:auto; object-fit:contain; filter:contrast(1.05); margin-left:auto; }
+
+  .wmu-ctas{ display:flex; gap:12px; flex-wrap:nowrap; margin:15px 0 0; }
+  .wmu-btn{ appearance:none; border:0; cursor:pointer; padding:14px 26.5px; border-radius:12px; font-weight:800; letter-spacing:.2px; transition:transform .12s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+  }
+  .wmu-btn.primary{ background:#337F57; color:--wmu-text; box-shadow:0 12px 28px rgba(53,195,107,.18); }
+  .wmu-btn.primary:hover{ transform:translateY(-1px); box-shadow:0 16px 34px rgba(53,195,107,.26); }
+  .wmu-btn.ghost{ background:transparent; color:var(--wmu-text); border:1px solid var(--border); }
+  .wmu-btn.ghost:hover{ background:rgba(255,255,255,.05); }
+  .wmu-chips{ display:flex; gap:16px; flex-wrap:wrap; margin:14px 0 0; }
+  .wmu-chip{ font-size:12px; padding:4px 10px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--wmu-soft); }
+
+  
+  .wmu-hex-figure{
+    --hexSize: clamp(320px, 36vw, 560px);
+    position:relative; width:var(--hexSize); aspect-ratio:1; margin-inline:auto;
+    clip-path:polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    border-radius:18px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.55);
+    z-index:1;
+  }
+  .wmu-hex-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .wmu-hex-figure::before{ content:""; position:absolute; inset:0; background:linear-gradient(200deg, rgba(53,195,107,.15), transparent 60%); mix-blend-mode:overlay; pointer-events:none; }
+  .wmu-hex-figure::after{ content:""; position:absolute; inset:-1px; clip-path:polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); border:1px solid rgba(255,255,255,.20); border-radius:18px; pointer-events:none; }
+
+  .wmu-scroll{ position:absolute; left:50%; bottom:18px; transform:translateX(-50%); font-size:.9rem; color:var(--wmu-soft); opacity:.85; z-index:1; }
+  .btnInicio a{
+    position: absolute;
+    
+
+  }
+  @media (max-width:980px){
+    .wmu-hero-inner{ grid-template-columns:1fr; gap:28px; }
+    .wmu-hex-figure{ order:-1; }
+    .wmu-credit{ width:100%; }
+    #financiacion .wmu-credit span{
+    font-size: 0.82rem;  
+  }
+  #financiacion .wmu-credit{
+    max-width: 330px; 
+  }
+
+  }
+
+
+</style>
+
+<section class="wmu-hero-full" id="financiacion" aria-label="Financiación WMU">
+  <div class="bg">
+    <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=2000&auto=format&fit=crop" alt="Cielo dramático">
+  </div>
+
+ 
+  <div class="fade top" aria-hidden="true"></div>
+  <div class="fade bottom" aria-hidden="true"></div>
+  <div class="btnInicio">
+    <a href="wpconstrucciones.com">Inicio</a>
+  </div>
+  <div class="wmu-hero-inner">
+    <div>
+      <span class="wmu-eyebrow">Plan WMU + financiación</span>
+      <h1 class="wmu-title">
+        <span class="thin">WMU</span>
+        <span class="strong">ARQUITECTURA MODULAR</span>
+      </h1>
+      <p class="wmu-sub">Arquitectura modular en steel frame: precisión industrial, obra limpia y montaje rápido. Elegí el modelo, ajustá el plan, lo instalamos.</p>
+
+    
+      <div class="wmu-credit">
+        <span>Empezá hoy · financiación Banco Hipotecario</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Banco_Hipotecario.png" alt="Banco Hipotecario">
+      </div>
+
+      <div class="wmu-ctas">
+        <a href="https://api.whatsapp.com/send/?phone=5493434056918&text&type=phone_number&app_absent=0" class="wmu-btn primary" target="_blank" rel="noopener noreferrer">
+  CONTÁCTANOS
+</a>
+        <a href="#models" class="wmu-btn ghost">VER MODELOS</a>
+      </div>
+
+      <div class="wmu-chips">
+        <span class="wmu-chip">Montaje express</span>
+        <span class="wmu-chip">Llave en mano</span>
+        <span class="wmu-chip">Garantía estructural</span>
+      </div>
+    </div>
+
+    <figure class="wmu-hex-figure" aria-label="Render del módulo WMU">
+      <img src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/bf6fac88-88ab-4262-ac1a-f7a5a35448a2/enhanced_WPMU+PROTOTIPO+0-10+krea.png?content-type=image%2Fpng" alt="Módulo WMU con galería exterior">
+    </figure>
+  </div>
+
+</section>
