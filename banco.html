@@ -1,0 +1,193 @@
+<div class="section">
+  <div class="col-left">
+    <div class="logo-wmu">WMU — Arquitectura Modular</div>
+
+    <h1 class="headline">
+      Financiación para tu módulo WMU<br>
+      <span>accedé a tu proyecto antes de lo previsto</span>
+    </h1>
+
+    <p class="sub">
+      Banco Hipotecario ofrece una línea de financiamiento especialmente orientada
+      a proyectos modulares, permitiéndote avanzar en tu vivienda o espacio 
+      profesional con mayor previsibilidad, acompañamiento y condiciones flexibles.
+    </p>
+
+    <div class="financing-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Banco_Hipotecario.png" class="hipo-logo" alt="Banco Hipotecario">
+      <div>
+        <div class="fin-title">Financiación Banco Hipotecario</div>
+        <div class="fin-desc">
+          Planes adaptados a cada proyecto WMU.<br>
+          Sujeto a evaluación crediticia y requisitos vigentes.
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="button">SIMULÁ TU FINANCIACIÓN</a>
+  </div>
+
+  <div class="col-right">
+    <div class="photo">
+      <img src="https://images.squarespace-cdn.com/content/67ffc8a20990bb5f40749245/f08ec8fb-e0e5-464d-9f2a-9bff9c8f12e2/aldea+%282%29.png?content-type=image%2Fpng" alt="">
+      <div class="brand">WMU — Tu casa en 90 días</div>
+    </div>
+
+    <div class="soft-lines"></div>
+  </div>
+</div>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+
+/* LAYOUT */
+.section{
+  width:100%;
+  min-height:100vh;
+  padding:80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+/* LEFT SIDE */
+.col-left{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.logo-wmu{
+  font-weight:600;
+  letter-spacing:2px;
+  font-size:13px;
+  color:#777;
+}
+
+.headline{
+  font-size:46px;
+  font-weight:700;
+  color:#111;
+  line-height:1.05;
+}
+.headline span{
+  color:#333;
+  font-weight:300;
+}
+
+.sub{
+  font-size:17px;
+  color:#555;
+  line-height:1.7;
+  max-width:460px;
+}
+
+/* FINANCING BOX */
+.financing-box{
+  margin-top:10px;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  background:white;
+  padding:18px 22px;
+  border-radius:18px;
+  border:1px solid #e7e7e7;
+  box-shadow:0 10px 26px rgba(0,0,0,0.08);
+  backdrop-filter:blur(4px);
+}
+
+.hipo-logo{
+  width:50px;
+  height:auto;
+}
+
+.fin-title{
+  font-size:17px;
+  font-weight:700;
+  color:#111;
+}
+
+.fin-desc{
+  font-size:14px;
+  color:#555;
+  margin-top:3px;
+}
+
+/* CTA BUTTON */
+.button{
+  margin-top:10px;
+  display:inline-block;
+  padding:16px 34px;
+  background:#111;
+  color:white;
+  text-decoration:none;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:0.6px;
+  transition:.25s;
+  box-shadow:0 10px 20px rgba(0,0,0,0.14);
+}
+.button:hover{
+  background:#000;
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(0,0,0,0.18);
+}
+
+/* RIGHT SIDE */
+.col-right{
+  flex:1.2;
+  position:relative;
+}
+
+.photo{
+  width:100%;
+  height:480px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 12px 32px rgba(0,0,0,0.14);
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.88);
+}
+
+.brand{
+  position:absolute;
+  bottom:18px;
+  right:18px;
+  background:rgba(255,255,255,0.75);
+  padding:10px 16px;
+  border-radius:14px;
+  font-size:13px;
+  color:#333;
+  font-weight:500;
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,0.5);
+}
+
+/* Minimalistic vertical lines */
+.soft-lines{
+  position:absolute;
+  right:-90px;
+  top:-50px;
+  width:330px;
+  height:650px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 32px,
+      rgba(0,0,0,0.05) 32px 33px
+    );
+  opacity:.22;
+}
+
+</style>
