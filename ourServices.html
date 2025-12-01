@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+<div class="ourServices">
+<div class="encabezado">
+<h2>Nuestros Servicios</h2>
+<p>Transforma tus ideas en realidad. Agenda una cita sin compromiso con nuestros expertos en construcción.
+Descubrí cómo revolucionamos tus espacios con soluciones innovadoras y sustentables.
+No esperes más, ¡el futuro de tu proyecto comienza hoy!</p>
+</div>
+<div class="services">
+    <div class="service">
+        <span class="material-symbols-outlined">
+            home_app_logo
+        </span>
+        <h3>Arquitectura</h3>
+        <p>Tu visión personalizada: Creamos espacios únicos e innovadores optimizados para el sistema Steel Frame.</p>
+    </div>
+    <div class="service">
+        <span class="material-symbols-outlined">
+            engineering
+        </span>
+        <h3>Ingeniería</h3>
+        <p>Seguridad y eficiencia: Nuestro enfoque innovador garantiza construcciones sólidas, eficientes y perdurables.</p>
+    </div>
+    <div class="service">
+        <span class="material-symbols-outlined">
+            construction
+        </span>
+        <h3>Construcción</h3>
+        <p>Ejecución rápida y sostenible: Detalle de nuestro proceso limpio con Steel Frame, enfocado en la eficiencia y la calidad.</p>
+    </div>
+    <div class="service">
+        <span class="material-symbols-outlined">
+            design_services
+        </span>
+        <h3>Dirección de Obra</h3>
+        <p>Calidad Garantizada: Control total de la obra. Supervisamos cada etapa para asegurar plazos, presupuesto y máxima calidad.</p>
+    </div>
+</div>
+</div>
+</body>
+<style>
+    .ourServices{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 65px;
+    }
+    .encabezado{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        max-width: 600px;
+        text-wrap: pretty;
+    }
+    .encabezado p{
+        color:#777777;
+    }
+    .services{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        max-width: 1000px;
+        gap:60px;
+    }
+    .material-symbols-outlined {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center; 
+  background-color: #5A7C69;
+  border-radius: 50%; 
+  font-size: 40px; 
+  color:whitesmoke;
+}
+.service p{
+    color:#777777;
+}
+@media (max-width: 900px) {
+        .services {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 600px; 
+            gap: 50px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        .services {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .ourServices {
+            gap: 40px;
+        }
+        .encabezado h2 {
+            font-size: 1.8rem;
+        }
+        .encabezado{
+            max-width: 400px;
+        }
+        .service {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 300px;
+    }
+    }
+</style>
