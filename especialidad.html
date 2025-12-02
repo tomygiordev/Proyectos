@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<body>
+<div class="contenedorService">
+<h2 class="txtService">LO QUE HACEMOS</h2>
+<div class="servicios">
+<div class="servicio">
+    <img src="https://images.squarespace-cdn.com/content/v1/67ffc8a20990bb5f40749245/0c46617d-c49e-4daf-8328-d519826b8b1e/IMG-20200807-WA0196.jpg?format=1500w">
+    <h4>Edificios de mediana altura</h4>
+    <p>Implementamos ingeniería de precisión para proyectos de desarrollo vertical. Optimizamos la ejecución de la estructura y la logística, asegurando un proceso eficiente.</p>
+</div>
+<div class="servicio">
+    <img src="https://images.squarespace-cdn.com/content/v1/67ffc8a20990bb5f40749245/fa7c15d9-88cd-4c3a-ae09-e325b55b24c3/wC7qtwNnUBpv1fQCKSCei30l4QDLGKp2qSvWpO3c.png?format=1500w">
+    <h4>Viviendas unifamiliares</h4>
+    <p>Construcción residencial de estándar superior. Diseñamos hogares de habitabilidad excepcional que garantizan el máximo confort térmico y acústico, con una durabilidad comprobada a largo plazo.</p>
+</div>
+<div class="servicio">
+    <img src="https://images.squarespace-cdn.com/content/v1/67ffc8a20990bb5f40749245/5e50ee5c-0662-4019-b3b2-a815e646baa3/steel.png?format=1500w">
+    <h4>Industriales | Locales comerciales</h4>
+    <p>Desarrollamos infraestructura industrial y comercial de alta complejidad. Aseguramos máxima funcionalidad y adaptabilidad, facilitando la inmediata puesta en marcha de cualquier proceso productivo.</p>
+</div>
+<div class="servicio">
+    <img src="https://images.squarespace-cdn.com/content/v1/67ffc8a20990bb5f40749245/9df407ad-023a-48ef-b40c-ed451f9cbc1d/1b6a8d06-8f40-4355-af6a-956f7f6eded8.jpg?format=1500w">
+    <h4>Reformas y Ampliaciones</h4>
+    <p>Reconfiguramos y ponemos en valor inmuebles existentes. Realizamos intervenciones estructurales con mínima interferencia, potenciando la funcionalidad y el valor patrimonial de su propiedad.</p>
+</div>
+<div class="servicio">
+    <img src="https://images.squarespace-cdn.com/content/v1/67ffc8a20990bb5f40749245/9cbf30ae-c804-4ef6-ad57-e9ff8c337879/ECF_5674.jpg?format=1500w">
+    <h4>Clínicas | Consultorios</h4>
+    <p>Desarrollamos espacios sanitarios con foco en la higiene y funcionalidad. Proyectamos clínicas bajo estricto cumplimiento normativo, creando ambientes óptimos para la atención médica especializada.</p>
+</div>
+</div></div>
+</body>
+<style>
+    .contenedoreService{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .txtService{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-weight: 700;
+        padding-bottom: 20px;
+    }
+.servicios{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+    gap:25px;
+}
+.servicio img{
+object-fit: cover;
+width: 100%; 
+    height: 300px;
+    border-radius: 30px;
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+    overflow: hidden;
+    text-wrap: balance;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    padding: 15px;
+}
+</style>
