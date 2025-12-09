@@ -1,0 +1,207 @@
+<style>
+.wmu-layers-white {
+  background-color: transparent;
+  padding: 60px 20px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.wmu-layers-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Columna de Texto */
+.wmu-text-col {
+  flex: 1;
+}
+
+.wmu-layers-head h2 {
+  color: #1A3B32;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.wmu-layers-head p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.wmu-highlight-box {
+  background: #f4f8f6; /* Un verde muy muy clarito de fondo */
+  border-left: 4px solid #1A3B32;
+  padding: 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.wmu-highlight-box strong {
+  color: #1A3B32;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Columna de las Capas (Visual) */
+.wmu-stack-col {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.wmu-layer-item {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 20px 25px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.wmu-layer-item:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  border-color: #1A3B32;
+}
+
+/* Numeros */
+.wmu-num {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #e0e0e0;
+  margin-right: 20px;
+  min-width: 40px;
+}
+
+.wmu-layer-item:hover .wmu-num {
+  color: #1A3B32;
+}
+
+/* Info de la capa */
+.wmu-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1A3B32;
+}
+
+.wmu-info span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Destacar la capa central (Estructura) */
+.wmu-core-layer {
+  border: 2px solid #1A3B32;
+  background: #fff;
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(26, 59, 50, 0.1);
+  z-index: 2;
+}
+
+.wmu-core-layer .wmu-num {
+  color: #1A3B32;
+}
+
+/* Linea decorativa */
+.wmu-stack-col::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 38px;
+  width: 2px;
+  background: #f0f0f0;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .wmu-layers-wrap {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .wmu-stack-col::before {
+    display: none;
+  }
+}
+</style>
+
+<div class="wmu-layers-white">
+  <div class="wmu-layers-wrap">
+    
+    <div class="wmu-text-col">
+      <div class="wmu-layers-head">
+        <h2>Tecnología Multicapa</h2>
+        <p>
+          Derribamos el mito de la pared hueca. Nuestras muros son un <strong>sistema de ingeniería</strong> compuesto por 5 capas inteligentes que trabajan en conjunto.
+        </p>
+      </div>
+      
+      <div class="wmu-highlight-box">
+        <strong>¿El resultado?</strong>
+        <span style="color:#555; font-size: 0.95rem;">
+          Una vivienda que conserva la temperatura ideal todo el año, ahorrando hasta un 40% en energía y eliminando la humedad para siempre.
+        </span>
+      </div>
+    </div>
+
+    <div class="wmu-stack-col">
+      
+      <div class="wmu-layer-item">
+        <div class="wmu-num">01</div>
+        <div class="wmu-info">
+          <h4>Exterior (EIFS)</h4>
+          <span>Revestimiento texturado impermeable y flexible.</span>
+        </div>
+      </div>
+
+      <div class="wmu-layer-item">
+        <div class="wmu-num">02</div>
+        <div class="wmu-info">
+          <h4>Rigidización</h4>
+          <span>Placa OSB que otorga solidez estructural.</span>
+        </div>
+      </div>
+
+      <div class="wmu-layer-item wmu-core-layer">
+        <div class="wmu-num">03</div>
+        <div class="wmu-info">
+          <h4>Acero + Aislación</h4>
+          <span>Perfilería galvanizada con lana de vidrio de alta densidad.</span>
+        </div>
+      </div>
+
+      <div class="wmu-layer-item">
+        <div class="wmu-num">04</div>
+        <div class="wmu-info">
+          <h4>Barrera de Vapor</h4>
+          <span>Evita la condensación dentro del muro.</span>
+        </div>
+      </div>
+
+      <div class="wmu-layer-item">
+        <div class="wmu-num">05</div>
+        <div class="wmu-info">
+          <h4>Interior</h4>
+          <span>Placas de yeso con terminación lisa perfecta.</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
