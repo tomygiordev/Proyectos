@@ -3,237 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Tomás Roldán Giorgi</title>
+    <title>CV Tomás Roldán Giorgi</title>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #2980b9;
-            --text: #333;
-            --bg: #fff;
-        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            width: 100%;
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.2;
+            color: #000;
             max-width: 800px;
+            margin: 0 auto;
             padding: 40px;
-            background: white;
+            background-color: #fff;
         }
-        header {
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        h1 {
-            color: var(--primary);
-            margin: 0;
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .subtitle {
-            font-size: 1.2em;
-            color: var(--accent);
-            font-weight: 500;
-            margin-top: 5px;
-        }
-        .contact-info {
-            margin-top: 15px;
-            font-size: 0.9em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .contact-info a {
-            color: var(--text);
+
+        a {
+            color: #000;
             text-decoration: none;
         }
-        .contact-info a:hover {
-            color: var(--accent);
+
+        a:hover {
+            text-decoration: underline;
         }
-        section {
-            margin-bottom: 25px;
-        }
-        h2 {
-            color: var(--primary);
-            font-size: 1.4em;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .job, .project, .education-item {
+
+        header {
+            text-align: center;
             margin-bottom: 20px;
         }
-        .job-header, .edu-header {
+
+        h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 2px;
+            font-weight: bold;
+        }
+
+        .entry {
+            margin-bottom: 15px;
+        }
+
+        .entry-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
+            font-size: 15px;
         }
-        .job-title {
+
+        .company-name {
             font-weight: bold;
-            font-size: 1.1em;
         }
-        .company {
-            color: var(--accent);
-            font-weight: 600;
+
+        .location {
+            font-style: italic;
         }
+
+        .role-title {
+            font-weight: bold;
+            font-style: italic;
+        }
+
         .date {
-            color: #777;
-            font-size: 0.9em;
-            white-space: nowrap;
+            font-style: normal;
         }
+
         ul {
-            margin: 5px 0;
+            margin: 5px 0 0 0;
             padding-left: 20px;
         }
+
         li {
-            margin-bottom: 5px;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-        }
-        .skill-category {
-            font-weight: bold;
-            display: block;
             margin-bottom: 2px;
-            color: var(--accent);
+            font-size: 14px;
+            text-align: justify;
         }
-        .project-link {
-            font-size: 0.85em;
-            color: var(--accent);
-            text-decoration: none;
-            margin-left: 5px;
+
+        p {
+            margin: 5px 0;
+            font-size: 14px;
+            text-align: justify;
         }
+
+        .skills-section p {
+            margin: 3px 0;
+        }
+
         @media print {
             body {
-                background: white;
-            }
-            .container {
-                width: 100%;
-                max-width: none;
                 padding: 0;
-            }
-            a {
-                text-decoration: none;
-                color: black;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
     <header>
         <h1>Tomás Roldán Giorgi</h1>
-        <div class="subtitle">Desarrollador Fullstack .NET y Web</div>
         <div class="contact-info">
-            <span>📍 Paraná, Entre Ríos, Argentina</span>
-            <span>📞 +54 3435220920</span>
-            <span>✉️ <a href="mailto:tomasroldangiorgi@gmail.com">tomasroldangiorgi@gmail.com</a></span>
-            <span>🔗 <a href="https://www.linkedin.com/in/tom%C3%A1sroldangiorgi/" target="_blank">LinkedIn</a></span>
-            <span>💻 <a href="https://github.com/tomygiordev" target="_blank">GitHub</a></span>
-            <span>📂 <a href="#" target="_blank">Portfolio</a></span>
+            Paraná, Entre Ríos, Argentina • +54 343 522 0920
+        </div>
+        <div class="contact-info">
+            <a href="mailto:tomasroldangiorgi@gmail.com">tomasroldangiorgi@gmail.com</a>
+        </div>
+        <div class="contact-info">
+            <a href="https://www.linkedin.com/in/tom%C3%A1sroldangiorgi/" target="_blank">linkedin.com/in/tomásroldangiorgi</a> • 
+            <a href="https://github.com/tomygiordev" target="_blank">github.com/tomygiordev</a>
         </div>
     </header>
 
-    <section>
-        <h2>Perfil Profesional</h2>
-        <p>
-            Desarrollador Junior y estudiante avanzado de Análisis de Sistemas con experiencia práctica en .NET y desarrollo web. 
-            Me destaco no solo por mi capacidad técnica para analizar sistemas y resolver problemas, sino por mi enfoque humano: 
-            tengo facilidad para comunicar ideas complejas de forma simple, escuchar activamente y generar un ambiente de confianza. 
-            Busco un rol donde pueda aportar soluciones tecnológicas eficientes y sumar a la dinámica colaborativa del equipo.
-        </p>
-    </section>
+    <div class="section-title">PERFIL PROFESIONAL</div>
+    <p>
+        Estudiante avanzado de Análisis de Sistemas y Desarrollador Junior. Actualmente liderando el desarrollo web y sistemas de gestión en WP Construcciones. Me destaco por combinar habilidades técnicas en .NET y desarrollo web con una fuerte capacidad para las relaciones interpersonales. Poseo facilidad para explicar ideas complejas de forma simple, fomentar la colaboración y generar ambientes de confianza. Busco aportar soluciones tecnológicas eficientes priorizando la calidad humana y la resolución fluida de problemas en equipo.
+    </p>
 
-    <section>
-        <h2>Experiencia Laboral</h2>
-        
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Encargado de Sistemas y Desarrollo</span> | <span class="company">WP Steel Frame (WP Construcciones)</span>
-                </div>
-                <span class="date">Agosto 2025 - Actualidad</span>
-            </div>
-            <ul>
-                <li>Desarrollo integral del sitio web corporativo <strong>wpconstrucciones.com</strong> (más de 5 secciones).</li>
-                <li>Diseño e implementación del sistema interno de gestión de stock y movimientos utilizando <strong>.NET</strong> (en desarrollo).</li>
-                <li>Creación de aplicación multiplataforma en <strong>AppSheet</strong> con scripts en <strong>Google Apps Script (JS)</strong> para el registro y gestión de pilotajes, optimizando la generación diaria de remitos.</li>
-            </ul>
-        </div>
-    </section>
+    <div class="section-title">EXPERIENCIA LABORAL</div>
 
-    <section>
-        <h2>Proyectos Destacados</h2>
-        
-        <div class="project">
-            <strong>NicTech - Web para Emprendimiento Tecnológico</strong> 
-            <a href="https://github.com/tomygiordev/nictech" class="project-link" target="_blank">[Ver Repositorio]</a>
-            <p>Desarrollo de landing page moderna utilizando <strong>React, Tailwind CSS y Supabase</strong>. Enfoque en diseño responsive y performance.</p>
+    <div class="entry">
+        <div class="entry-header">
+            <span class="company-name">WP Steel Frame (WP Construcciones)</span>
+            <span class="date">Agosto 2025 – Actualidad</span>
         </div>
+        <div class="entry-header">
+            <span class="role-title">Encargado de Sistemas y Desarrollo</span>
+            <span class="location">Paraná, Argentina</span>
+        </div>
+        <ul>
+            <li>Desarrollo y mantenimiento del sitio web corporativo (wpconstrucciones.com) de más de 5 secciones.</li>
+            <li>Diseño e implementación de un sistema interno de gestión de stock y movimientos utilizando .NET y SQL (en desarrollo).</li>
+        </ul>
+    </div>
 
-        <div class="project">
-            <strong>MyGatekeeper - Juego de Control Fronterizo</strong>
-            <a href="https://github.com/tomygiordev/myGatekeeper" class="project-link" target="_blank">[Ver Repositorio]</a>
-            <p>Proyecto personal desarrollado en <strong>C++ con Qt</strong>. Sistema personalizable donde los niveles se configuran mediante archivos de texto plano.</p>
-        </div>
-    </section>
+    <div class="section-title">PROYECTOS</div>
 
-    <section>
-        <h2>Educación</h2>
-        
-        <div class="education-item">
-            <div class="edu-header">
-                <strong>Licenciatura en Sistemas de Información / Analista de Sistemas</strong>
-                <span class="date">2023 - Actualidad</span>
-            </div>
-            <div>FCYT UADER</div>
-            <p style="font-size: 0.9em; margin-top: 5px;">
-                Estudiante de 4to año. Título intermedio de Analista al 78% (18 materias aprobadas).
-            </p>
+    <div class="entry">
+        <div class="entry-header">
+            <span class="company-name">GeoCimenta (Empresa de Pilotaje)</span>
+            <span class="date">Oct 2025 – Dic 2025</span>
         </div>
-    </section>
+        <div class="role-title">Desarrollador AppSheet & Apps Script</div>
+        <ul>
+            <li>Desarrollo de aplicación multiplataforma para el registro de etapas de pilotaje.</li>
+            <li>Implementación de automatización con Google Apps Script (JavaScript) para generar y enviar remitos diarios en PDF.</li>
+        </ul>
+    </div>
 
-    <section>
-        <h2>Habilidades y Certificaciones</h2>
-        <div class="skills-grid">
-            <div>
-                <span class="skill-category">Backend & Lenguajes</span>
-                C# (.NET), C++, JavaScript (Apps Script).
-            </div>
-            <div>
-                <span class="skill-category">Frontend</span>
-                HTML5, CSS3, React, Tailwind CSS.
-            </div>
-            <div>
-                <span class="skill-category">Base de Datos</span>
-                PostgreSQL, SQL Server.
-            </div>
-            <div>
-                <span class="skill-category">Herramientas</span>
-                Git/GitHub, AppSheet, Visual Studio.
-            </div>
+    <div class="entry">
+        <div class="entry-header">
+            <span class="company-name">NicTech</span>
+            <span class="date">En desarrollo</span>
         </div>
-        <div style="margin-top: 15px;">
-            <strong>Certificación:</strong> Junior Cybersecurity Analyst Career Path (Cisco/Credly).
-            <br>
-            <strong>Idiomas:</strong> Español (Nativo), Inglés (Lectura técnica).
+        <div class="role-title">Desarrollador Web Fullstack</div>
+        <ul>
+            <li>Desarrollo de aplicación web integral para emprendimiento tecnológico utilizando React, Tailwind CSS y Supabase (BaaS).</li>
+            <li>Implementación de sistema de gestión de stock con panel de administración y seguimiento de estado de reparaciones accesible por clientes mediante código único.</li>
+            <li>Repositorio: <a href="https://github.com/tomygiordev/nictech">github.com/tomygiordev/nictech</a></li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span class="company-name">RITUAL (Red Social)</span>
+            <span class="date">Proyecto Académico Grupal</span>
         </div>
-    </section>
-</div>
+        <div class="role-title">Lead Frontend Developer</div>
+        <ul>
+            <li>Desarrollo integral del Frontend para una red social tipo microblogging utilizando PHP y MySQL.</li>
+            <li>Responsable único del diseño e implementación de las interfaces de Login, Perfiles de Usuario, Feed de publicaciones y navegación principal, asegurando una experiencia de usuario fluida.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span class="company-name">MyGatekeeper</span>
+            <span class="date">Proyecto Personal</span>
+        </div>
+        <div class="role-title">Desarrollador C++</div>
+        <ul>
+            <li>Juego de simulación de control fronterizo desarrollado en C++ con framework Qt. Implementación de sistema de niveles personalizables mediante lectura de archivos de texto plano.</li>
+            <li>Repositorio: <a href="https://github.com/tomygiordev/myGatekeeper">github.com/tomygiordev/myGatekeeper</a></li>
+        </ul>
+    </div>
+
+    <div class="section-title">EDUCACIÓN</div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span class="company-name">Universidad Autónoma de Entre Ríos (FCYT)</span>
+            <span class="date">2023 – Actualidad</span>
+        </div>
+        <div class="role-title">Licenciatura en Sistemas de Información / Analista de Sistemas</div>
+        <ul>
+            <li>Estudiante de 4to año.</li>
+            <li>Título intermedio de Analista de Sistemas: 78% completado (18 materias aprobadas).</li>
+        </ul>
+    </div>
+
+    <div class="section-title">CERTIFICACIONES</div>
+    <ul>
+        <li><strong>Junior Cybersecurity Analyst Career Path</strong> - Cisco / Credly.</li>
+    </ul>
+
+    <div class="section-title">HABILIDADES TÉCNICAS</div>
+    <div class="skills-section">
+        <p><strong>Lenguajes:</strong> C# (.NET), JavaScript, PHP, C++, HTML, CSS.</p>
+        <p><strong>Frameworks y Librerías:</strong> React, Tailwind CSS, WinForms, Google Apps Script.</p>
+        <p><strong>Bases de Datos:</strong> PostgreSQL, SQL Server, MySQL, Supabase.</p>
+        <p><strong>Herramientas:</strong> Git, GitHub, AppSheet, Visual Studio, XAMPP.</p>
+        <p><strong>Idiomas:</strong> Español (Nativo), Inglés (Lectura técnica).</p>
+    </div>
 
 </body>
 </html>
