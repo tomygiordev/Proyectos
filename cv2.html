@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Tomás Roldán Giorgi</title>
     <style>
         @page {
-            margin: 1.27cm; 
+            margin: 1.27cm;
             size: A4;
         }
-        
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.2;
@@ -20,12 +21,14 @@
             font-size: 10.5pt;
         }
 
-        a { 
-            color: #000; 
-            text-decoration: none; 
+        a {
+            color: #000;
+            text-decoration: none;
         }
- 
-        a:hover { text-decoration: underline; }
+
+        a:hover {
+            text-decoration: underline;
+        }
 
         header {
             text-align: center;
@@ -55,7 +58,9 @@
             letter-spacing: 0.5px;
         }
 
-        .entry { margin-bottom: 12px; }
+        .entry {
+            margin-bottom: 12px;
+        }
 
         .entry-header {
             display: flex;
@@ -65,23 +70,23 @@
             margin-bottom: 2px;
         }
 
-        .org-name { 
-            font-weight: bold; 
+        .org-name {
+            font-weight: bold;
             font-size: 11pt;
         }
 
-        .location { 
-            font-size: 10.5pt; 
+        .location {
+            font-size: 10.5pt;
         }
 
-        .role-title { 
-            font-style: italic; 
+        .role-title {
+            font-style: italic;
             font-weight: normal;
             font-size: 10.5pt;
         }
 
-        .date { 
-            font-style: normal; 
+        .date {
+            font-style: normal;
             text-align: right;
             font-size: 10.5pt;
         }
@@ -106,33 +111,63 @@
             padding: 0;
             list-style: none;
         }
+
         .skills-list li {
             margin-bottom: 3px;
             text-align: left;
         }
+
+        .skills-list li {
+            margin-bottom: 3px;
+            text-align: left;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .note-portfolio {
+            margin-top: 10px;
+            text-align: center;
+            font-style: italic;
+            font-size: 10pt;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
+        <img src="perfil.png" alt="Foto de perfil" class="profile-img">
         <h1>Tomás Roldán Giorgi</h1>
         <div class="contact-info">
             26/04/2005 • Paraná, Entre Ríos • +54 343 522 0920
         </div>
         <div class="contact-info">
-            <a href="mailto:tomasroldangiorgi@gmail.com">tomasroldangiorgi@gmail.com</a> • 
-            <a href="https://www.linkedin.com/in/tom%C3%A1sroldangiorgi/" target="_blank">linkedin.com/in/tomasroldangiorgi</a> • 
-            <a href="https://github.com/tomygiordev" target="_blank">github.com/tomygiordev</a>
+            <a href="mailto:tomasroldangiorgi@gmail.com">tomasroldangiorgi@gmail.com</a> •
+            <a href="https://www.linkedin.com/in/tom%C3%A1sroldangiorgi/"
+                target="_blank">linkedin.com/in/tomasroldangiorgi</a> •
+            <a href="https://github.com/tomygiordev" target="_blank">github.com/tomygiordev</a> •
+            <a href="https://tomygiorgi.vercel.app/" target="_blank">tomygiorgi.vercel.app</a>
         </div>
     </header>
 
     <div class="section-title">PERFIL PROFESIONAL</div>
     <p>
-        Estudiante avanzado de Análisis de Sistemas y Desarrollador Junior con experiencia en el ecosistema .NET y desarrollo web fullstack. Me destaco por mi capacidad para analizar sistemas complejos y encontrar soluciones eficientes, combinando solidez técnica con fuertes habilidades interpersonales. Poseo facilidad para comunicar ideas de forma simple, trabajar de manera colaborativa y aportar propuestas proactivas que agilizan la toma de decisiones en equipo.
+        Estudiante avanzado de Análisis de Sistemas y Desarrollador Junior con experiencia en el ecosistema .NET y
+        desarrollo web fullstack. Me destaco por mi capacidad para analizar sistemas complejos y encontrar soluciones
+        eficientes, combinando solidez técnica con fuertes habilidades interpersonales. Poseo facilidad para comunicar
+        ideas de forma simple, trabajar de manera colaborativa y aportar propuestas proactivas que agilizan la toma de
+        decisiones en equipo.
     </p>
 
     <div class="section-title">EDUCACIÓN</div>
-    
+
     <div class="entry">
         <div class="entry-header">
             <span class="org-name">Universidad Autónoma de Entre Ríos (FCYT)</span>
@@ -146,7 +181,7 @@
             <li>Análisis de Sistemas: 78% completado.</li>
         </ul>
     </div>
-    
+
     <div class="entry">
         <div class="entry-header">
             <span class="org-name">Cisco / Credly</span>
@@ -168,20 +203,22 @@
             <span class="date">Ago 2025 – Actualidad</span>
         </div>
         <ul>
-            <li>Área de IT y desarrollo web. Sitio corporativo: <a href="https://wpconstrucciones.com">wpconstrucciones.com</a></li>
+            <li>Área de IT y desarrollo web. Sitio corporativo: <a
+                    href="https://wpconstrucciones.com">wpconstrucciones.com</a></li>
             <li>Diseño e implementación de sistema interno de gestión de stock y movimientos utilizando .NET y SQL.</li>
             <li>Optimización de procesos digitales para la gestión de obras modulares de forma autónoma.</li>
         </ul>
     </div>
 
-    <div class="section-title">PROYECTOS TÉCNICOS</div>
-
     <div class="entry">
         <div class="entry-header">
             <span class="org-name">GeoCimenta (Pilotaje y Construcción)</span>
-            <span class="date">Oct 2025 – Dic 2025</span>
+            <span class="location">Paraná, Argentina</span>
         </div>
-        <div class="role-title">Desarrollador AppSheet & Apps Script (No Code/JS)</div>
+        <div class="entry-header">
+            <span class="role-title">Desarrollador AppSheet & Apps Script (No Code/JS)</span>
+            <span class="date">Oct 2025 – Mar 2026</span>
+        </div>
         <ul>
             <li>Desarrollo de aplicación móvil para el registro de etapas de pilotaje en obra.</li>
             <li>Automatización en generación de reportes diarios PDF mediante Google Apps Script.</li>
@@ -191,51 +228,39 @@
     <div class="entry">
         <div class="entry-header">
             <span class="org-name">NicTech (E-commerce y Gestión)</span>
-            <span class="date">En desarrollo</span>
+            <span class="location">Paraná, Argentina</span>
         </div>
-        <div class="role-title">Desarrollador Fullstack (React + Tailwind + Supabase)</div>
+        <div class="entry-header">
+            <span class="role-title">Desarrollador Fullstack (React + Tailwind + Supabase)</span>
+            <span class="date">Ago 2025 – Actualidad</span>
+        </div>
         <ul>
             <li>Aplicación web con panel de administración para stock y seguimiento de reparaciones.</li>
             <li>Código: <a href="https://github.com/tomygiordev/nictech">github.com/tomygiordev/nictech</a></li>
         </ul>
     </div>
 
-    <div class="entry">
-        <div class="entry-header">
-            <span class="org-name">RITUAL (Red Social)</span>
-            <span class="date">Proyecto Grupal</span>
-        </div>
-        <div class="role-title">Frontend Developer (HTML, CSS y JS)</div>
-        <ul>
-            <li>Diseño y maquetación de microblogging. Implementación de login, perfil y feed de usuarios.</li>
-            <li>Código: <a href="https://github.com/0tomi/ProgramacionAvanzada">github.com/0tomi/ProgramacionAvanzada</a></li>
-        </ul>
-    </div>
-
-    <div class="entry">
-        <div class="entry-header">
-            <span class="org-name">MyGatekeeper (Simulador)</span>
-            <span class="date">Proyecto Personal</span>
-        </div>
-        <div class="role-title">Desarrollador C++ / Qt</div>
-        <ul>
-            <li>Simulador de lógica de control fronterizo con carga de niveles por archivos de texto.</li>
-            <li>Código: <a href="https://github.com/tomygiordev/myGatekeeper">github.com/tomygiordev/myGatekeeper</a></li>
-        </ul>
+    <div class="note-portfolio">
+        <p>Más proyectos y detalles disponibles en mi portafolio web personal: <a href="https://tomygiorgi.vercel.app/"
+                target="_blank">tomygiorgi.vercel.app</a></p>
     </div>
 
     <div class="section-title">HABILIDADES TÉCNICAS</div>
     <ul class="skills-list">
         <li><strong>Lenguajes:</strong> C# (.NET), JavaScript, PHP, C++, HTML5, CSS3, SQL.</li>
         <li><strong>Frameworks & Librerías:</strong> React, Tailwind CSS, Windows Forms, Google Apps Script.</li>
-        <li><strong>Herramientas & Bases de Datos:</strong> Git/GitHub, PostgreSQL, MySQL, Supabase, AppSheet, Visual Studio.</li>
+        <li><strong>Herramientas & Bases de Datos:</strong> Git/GitHub, PostgreSQL, MySQL, Supabase, AppSheet, Visual
+            Studio.</li>
         <li><strong>Idiomas:</strong> Español (Nativo), Inglés (Lectura Técnica).</li>
     </ul>
 
     <div style="opacity: 0; height: 0; width: 0; overflow: hidden; position: absolute; z-index: -1;">
-        .NET Core, ASP.NET, Entity Framework, Agile, Scrum, Kanban, Docker, Kubernetes, AWS, Azure, CI/CD, Testing, Unit Testing, Clean Architecture, SOLID, Design Patterns, MVC, API REST, JSON, XML, Bootstrap, SASS, LESS, Node.js, Express, MongoDB, Redis, Linux, Bash, PowerShell, Networking, TCP/IP, Security, OWASP.
-        Candidato Seleccionado. 
+        .NET Core, ASP.NET, Entity Framework, Agile, Scrum, Kanban, Docker, Kubernetes, AWS, Azure, CI/CD, Testing, Unit
+        Testing, Clean Architecture, SOLID, Design Patterns, MVC, API REST, JSON, XML, Bootstrap, SASS, LESS, Node.js,
+        Express, MongoDB, Redis, Linux, Bash, PowerShell, Networking, TCP/IP, Security, OWASP.
+        Candidato Seleccionado.
     </div>
 
 </body>
+
 </html>
